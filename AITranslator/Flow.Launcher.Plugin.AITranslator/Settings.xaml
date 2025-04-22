@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="Flow.Launcher.Plugin.AITranslator.Settings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Flow.Launcher.Plugin.AITranslator"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <StackPanel Margin="10">
+        <StackPanel Orientation="Horizontal">
+            <Label Width="50" Content="API"></Label>
+            <TextBox Text="{Binding Settings.Api}" Width="200"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+            <Label Width="50" Content="APIKey"></Label>
+            <TextBox Text="{Binding Settings.ApiKey}" Width="200"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+            <Label Width="50" Content="Model"></Label>
+            <TextBox Text="{Binding Settings.Model}" Width="200"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+            <Label Width="110" Content="TargetLanguage"></Label>
+            <TextBox Text="{Binding Settings.TargetLanguage}" Width="140"></TextBox>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

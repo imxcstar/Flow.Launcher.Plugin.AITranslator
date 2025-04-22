@@ -1,0 +1,12 @@
+{
+    "ID": "1651B851D1834780A7C97BD611B299B8",
+    "ActionKeyword": "atr",
+    "Name": "AITranslator",
+    "Description": "a ai translator plugin for Flow",
+    "Author": "xcssa",
+    "Version": "1.0.0",
+    "Language": "csharp",
+    "Website": "https://github.com/imxcstar/Flow.Launcher.Plugin.AITranslator",
+    "IcoPath": "icon.png",
+    "ExecuteFileName": "Flow.Launcher.Plugin.AITranslator.dll"
+}

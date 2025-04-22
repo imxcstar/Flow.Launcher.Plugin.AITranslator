@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <AssemblyName>Flow.Launcher.Plugin.AITranslator</AssemblyName>
+        <PackageId>Flow.Launcher.Plugin.AITranslator</PackageId>
+        <Authors>xcssa</Authors>
+        <PackageProjectUrl>https://github.com/imxcstar/Flow.Launcher.Plugin.AITranslator</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/imxcstar/Flow.Launcher.Plugin.AITranslator</RepositoryUrl>
+        <PackageTags>flow-launcher flow-plugin</PackageTags>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DebugSymbols>false</DebugSymbols>
+        <DebugType>None</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="plugin.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Flow.Launcher.Plugin" Version="4.4.0"/>
+        <PackageReference Include="OpenAI" Version="2.2.0-beta.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Languages\*.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <SubType>Designer</SubType>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+      <None Update="icon.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>
