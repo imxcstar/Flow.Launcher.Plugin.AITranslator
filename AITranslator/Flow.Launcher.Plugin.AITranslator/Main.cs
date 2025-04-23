@@ -33,7 +33,9 @@ namespace Flow.Launcher.Plugin.AITranslator
 
         public async Task<List<Result>> QueryAsync(Query query, CancellationToken token)
         {
-            await Task.Delay(100, token);
+            if (string.IsNullOrWhiteSpace(query.Search.Replace(" ", "")))
+                return new List<Result>();
+            await Task.Delay(300, token);
             var completion =
                 await _client.CompleteChatAsync(
                     new List<ChatMessage>
@@ -41,12 +43,19 @@ namespace Flow.Launcher.Plugin.AITranslator
                         $"翻译此内容到{_settings.TargetLanguage}语言，不要返回其它内容，只返回翻译结果。内容为：{query.Search}"
                     }, new ChatCompletionOptions(), token);
 
+            var ret = completion.Value.Content[0].Text;
             return new List<Result>
             {
                 new Result()
                 {
-                    Title = completion.Value.Content[0].Text,
-                    IcoPath = "icon.png"
+                    IcoPath = "icon.png",
+                    Title = ret,
+                    CopyText = ret,
+                    Action = c =>
+                    {
+                        _context.API.CopyToClipboard(ret);
+                        return true;
+                    }
                 }
             };
         }
